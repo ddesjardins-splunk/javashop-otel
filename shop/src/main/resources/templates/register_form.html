@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en"></head>
+<body>
+	<div align="center">
+		<h1>User Registration</h1>
+		<form action="#" th:action="@{/register}" method="post" th:object="${user}">
+			<label>Full name:</label>
+			<input type="text" th:field="*{name}" /><br/>
+			
+			<label>E-mail:</label>
+			<input type="text" th:field="*{email}" /><br/>
+      		
+      		<label>Favorite Color:</label>
+			<input type="radio" th:field="*{color}" value="Blue" />
+			<input type="radio" th:field="*{color}" value="Green" />
+			<input type="radio" th:field="*{color}" value="Red" />
+			<br/>
+			
+			<button type="submit">Register</button>		
+		</form>
+	</div>
+</body>
+</html>

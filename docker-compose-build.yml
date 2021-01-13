@@ -1,0 +1,17 @@
+version: '3'
+services:
+  shop:
+    build: shop
+    ports:
+     - "8010:8010"
+    links:
+      - products
+      - stock
+  products:
+    build: products
+    ports:
+     - "8020:8020"
+  stock:
+    build: stock
+    ports:
+     - "8030:8030"
