@@ -10,7 +10,7 @@ Git, Java 8 or above, Maven, Docker.
 # Steps
 
 #Git clone
-https://github.com/ddesjardins-splunk/ot-k8s-java.git
+https://github.com/ddesjardins-splunk/javashop-otel
 	
 cd ot-k8s-java
 
