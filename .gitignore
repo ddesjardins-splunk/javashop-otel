@@ -10,7 +10,7 @@ buildNumber.properties
 **.iml
 
 # Package Files #
-*.jar
+
 *.war
 *.ear
 
