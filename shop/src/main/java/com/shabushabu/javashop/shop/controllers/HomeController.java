@@ -5,17 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-/* import io.opentracing.Scope;
-import io.opentracing.Span;
-import io.opentracing.Tracer;
-import io.opentracing.util.GlobalTracer;
-*/
 
-import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Scope;
@@ -26,9 +20,8 @@ import com.shabushabu.javashop.shop.services.ProductService;
 
 @Controller
 public class HomeController {
-
-
-    private static final Tracer s_tracer = OpenTelemetry.getGlobalTracer("javashop.tracer");
+	private static final Tracer s_tracer =
+			GlobalOpenTelemetry.getTracer("javasshop.tracer");
 
     @Autowired
     private ProductService productService;
