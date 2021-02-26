@@ -5,6 +5,7 @@ release.properties
 buildNumber.properties
 
 ### Java template
+*.prefs
 *.class
 .idea
 **.iml
