@@ -1,5 +1,5 @@
 FROM openjdk:8-jre
-ADD target/products-0.0.1-SNAPSHOT.jar app.jar
+ADD target/javashop.products-latest.jar app.jar
 ADD products.yml app-config.yml
 EXPOSE 8020
 

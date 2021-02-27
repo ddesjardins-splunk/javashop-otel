@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.shabushabu.javashop</groupId>
-    <artifactId>products</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>javashop.products</artifactId>
+    <version>latest</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,6 +38,29 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                  <execution>
+                    <id>default</id>
+                    <goals>
+                      <goal>build</goal>
+                      <goal>push</goal>
+                    </goals>
+                  </execution>
+                </executions>
+                <configuration>
+                  <repository>${project.artifactId}</repository>
+                  <tag>${project.version}</tag>
+                  <buildArgs>
+                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                  </buildArgs>
+                </configuration>
+              </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

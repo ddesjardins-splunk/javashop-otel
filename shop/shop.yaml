@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: shop
-        image: shabushabu/javashop.shop:1.22
+        image: javashop.shop:1.23
         ports:
         - containerPort: 8010
         env:

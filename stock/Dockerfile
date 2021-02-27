@@ -1,5 +1,5 @@
 FROM openjdk:8-jre
-ADD target/stock-0.0.1-SNAPSHOT.jar app.jar
+ADD target/javashop.stock-latest.jar app.jar
 EXPOSE 8030
 
 
