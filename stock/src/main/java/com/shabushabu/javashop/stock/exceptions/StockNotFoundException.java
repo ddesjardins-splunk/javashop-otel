@@ -2,6 +2,11 @@ package com.shabushabu.javashop.stock.exceptions;
 
 public class StockNotFoundException extends Exception {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public StockNotFoundException() {
     }
 

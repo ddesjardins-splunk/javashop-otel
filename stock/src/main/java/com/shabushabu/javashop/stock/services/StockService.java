@@ -7,7 +7,6 @@ import com.shabushabu.javashop.stock.model.Stock;
 import com.shabushabu.javashop.stock.repositories.StockRepository;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 

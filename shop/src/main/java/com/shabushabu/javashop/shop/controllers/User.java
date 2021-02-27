@@ -1,6 +1,5 @@
 package com.shabushabu.javashop.shop.controllers;
 
-import java.sql.Date;
 
 public class User {
 	private String name;

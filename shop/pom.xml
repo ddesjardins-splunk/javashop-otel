@@ -15,14 +15,12 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.19.RELEASE</version>
+        <relativePath></relativePath>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <jkube.version>1.0.2</jkube.version>
-        <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
-        <jkube.generator.name>docker.io/shabushabu/javashop:${project.version}</jkube.generator.name>
     </properties>
     
     <dependencyManagement>
@@ -33,16 +31,15 @@
                 <version>Dalston.SR5</version>
                 <type>pom</type>
                 <scope>import</scope>
-	</dependency>
+	        </dependency>
 	
-	 <dependency>
-        <groupId>io.opentelemetry</groupId>
-        <artifactId>opentelemetry-bom</artifactId>
-        <version>0.14.1</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-
+	        <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-bom</artifactId>
+                <version>0.14.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -63,13 +60,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
     </dependency>
-    
     		<dependency>
 	            <groupId>io.opentelemetry</groupId>
 		          <artifactId>opentelemetry-api</artifactId>
-			
 				</dependency>
-    
 </dependencies>
 
     <build>
@@ -77,12 +71,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            
-             <plugin>
-                <groupId>org.eclipse.jkube</groupId>
-                <artifactId>kubernetes-maven-plugin</artifactId>
-                <version>${jkube.version}</version>
             </plugin>
         </plugins>
     </build>

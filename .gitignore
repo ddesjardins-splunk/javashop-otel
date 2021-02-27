@@ -25,3 +25,8 @@ buildNumber.properties
 
 #logs
 *.log
+
+#vscode
+.vscode/
+*.project
+.settings
