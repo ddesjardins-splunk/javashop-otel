@@ -2,7 +2,7 @@
 
 ( Assumes SignalFx Smart Agent is installed as Daemonset according to: 
 
-https://docs.signalfx.com/en/latest/integrations/kubernetes/k8s-quick-install.html
+https://signalfx.github.io/observability-workshop/latest/smartagent/k3s/#2-use-helm-to-deploy-agent
 
 # You will also need:
 Git, Java 8 or above, Maven, Docker.
