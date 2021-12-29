@@ -40,28 +40,6 @@
             </plugin>
 
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.13</version>
-                <executions>
-                  <execution>
-                    <id>default</id>
-                    <goals>
-                      <goal>build</goal>
-                      <goal>push</goal>
-                    </goals>
-                  </execution>
-                </executions>
-                <configuration>
-                  <repository>${project.artifactId}</repository>
-                  <tag>${project.version}</tag>
-                  <buildArgs>
-                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                  </buildArgs>
-                </configuration>
-              </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>1.6</version>
