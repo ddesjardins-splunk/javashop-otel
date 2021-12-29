@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: stock
-        image: javashop.stock:1.1
+        image: javashop.stock:latest
         ports:
         - containerPort: 8030
         env:
