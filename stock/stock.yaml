@@ -28,16 +28,26 @@ spec:
     spec:
       containers:
       - name: stock
-        image: javashop.stock:latest
+        image: 'docker.io/shabushabu/javashop.stock:latest'
         ports:
         - containerPort: 8030
         env:
-          - name: SIGNALFX_AGENT_HOST
-            valueFrom: 
+          - name: SPLUNK_OTEL_AGENT
+            valueFrom:
               fieldRef:
-                fieldPath:  status.hostIP
+                fieldPath: status.hostIP
+          
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=manualinst-java-otel-k8s,deployment.environment=dd-k8s-1-23
+          
+          - name: SPLUNK_METRICS_ENDPOINT
+            value: http://$(SPLUNK_OTEL_AGENT):9943
+          
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://$(SPLUNK_OTEL_AGENT):4317
+          
           - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-            value: http://$(SIGNALFX_AGENT_HOST):9080/v1/trace
+            value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
            #livenessProbe:
            #httpGet:
            #path: /health
