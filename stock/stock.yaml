@@ -38,7 +38,7 @@ spec:
                 fieldPath: status.hostIP
           
           - name: OTEL_RESOURCE_ATTRIBUTES
-            value: service.name=manualinst-java-otel-k8s,deployment.environment=dd-k8s-1-23
+            value: service.name=stock,deployment.environment=dd-k8s-1-23
           
           - name: SPLUNK_METRICS_ENDPOINT
             value: http://$(SPLUNK_OTEL_AGENT):9943
