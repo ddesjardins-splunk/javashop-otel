@@ -44,7 +44,7 @@
     </dependencyManagement>
 
     <dependencies>
-	<dependency>
+		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
@@ -59,11 +59,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
-    </dependency>
-    		<dependency>
-	            <groupId>io.opentelemetry</groupId>
-		          <artifactId>opentelemetry-api</artifactId>
-				</dependency>
+    	</dependency>		
 </dependencies>
 
     <build>
@@ -72,29 +68,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.13</version>
-                <executions>
-                  <execution>
-                    <id>default</id>
-                    <goals>
-                      <goal>build</goal>
-                      <goal>push</goal>
-                    </goals>
-                  </execution>
-                </executions>
-                <configuration>
-                  <repository>${project.artifactId}</repository>
-                  <tag>${project.version}</tag>
-                  <buildArgs>
-                    <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                  </buildArgs>
-                </configuration>
-              </plugin>
-
         </plugins>
     </build>
 </project>
