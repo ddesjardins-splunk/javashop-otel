@@ -39,7 +39,7 @@ spec:
           
           - name: OTEL_RESOURCE_ATTRIBUTES
             value: service.name=stock,deployment.environment=dd-k8s-1-25-2
-          
+ 
           - name: SPLUNK_METRICS_ENDPOINT
             value: http://$(SPLUNK_OTEL_AGENT):9943
           
