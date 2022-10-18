@@ -54,7 +54,7 @@ public class HomeController {
 		model.addAttribute("user", new User());
 		model.addAttribute("products", productService.getProducts());
 		
-		if (theLocation.equalsIgnoreCase("Chicago")) {
+		if (null != theLocation && theLocation.equalsIgnoreCase("Chicago")) {
 			myCoolFunction();
 		}
       return "index";
