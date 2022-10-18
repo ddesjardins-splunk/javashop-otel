@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
+import java.util.Random;
 
 @Path("/products")
 @Produces(MediaType.APPLICATION_JSON)
@@ -26,10 +27,30 @@ public class ProductResource {
 
     @GET
     @Timed
+    @Path("old")
     public Response getAllProducts() {
         return Response.status(200)
                 .entity(productService.getAllProducts())
                 .build();
+    }
+
+    @GET
+    @Timed
+    @Path("new")
+    public Response getAllProductsNew() {
+
+        myCoolFunction();
+        return Response.status(200)
+                .entity(productService.getAllProducts())
+                .build();
+    }
+
+    private void myCoolFunction() {
+        Random random = new Random();
+      int sleepy = random.nextInt(5000 - 3000) + 3000;
+      try{
+      Thread.sleep(sleepy);
+      } catch (Exception e){}
     }
 
     @GET

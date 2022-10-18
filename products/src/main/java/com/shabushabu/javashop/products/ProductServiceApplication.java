@@ -9,6 +9,7 @@ import com.shabushabu.javashop.products.healthchecks.BasicHealthCheck;
 import com.shabushabu.javashop.products.configuration.ProductServiceConfiguration;
 import com.shabushabu.javashop.products.resources.ProductResource;
 
+
 public class ProductServiceApplication extends Application<ProductServiceConfiguration> {
     public static void main(String[] args) throws Exception {
         new ProductServiceApplication().run(args);

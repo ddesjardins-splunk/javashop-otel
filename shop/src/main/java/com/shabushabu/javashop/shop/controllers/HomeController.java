@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import java.util.Random;
 //import io.opentelemetry.extension.auto.annotations.WithSpan;
 
 import com.shabushabu.javashop.shop.services.ProductService;
@@ -23,7 +23,7 @@ public class HomeController {
     
     /*
    @RequestMapping(value="/", method = RequestMethod.GET)
-   public String usingRequestParam(Model model, @RequestParam(value="name", required=true) String thename, @RequestParam(value="color", required=true) String thecolor) {
+   public String usingRequestParam(Model model, @RequestParam(value="name", required=false) String thename, @RequestParam(value="location", required=false) String theLocation) {
 
 	 	// Create Span
 	   Span span = s_tracer.spanBuilder("usingRequestParam").startSpan();
@@ -48,25 +48,38 @@ public class HomeController {
    } 
    */
     
-    @RequestMapping(value="/", method = RequestMethod.GET)
+    @RequestMapping(value="/")
     public String usingRequestParam(Model model, @RequestParam(value="name", required=false) String theName, @RequestParam(value="location", required=false) String theLocation) {
+
+
+	if (null == theName ) {
+		theName = "Guest";
+	}	
 	
-		model.addAttribute("user", new User());
+	if (null == theLocation ) {
+		theLocation="California";
+	}
+
+	model.addAttribute("user", new User());
+	//model.addAttribute("products", productService.getProducts());
+//	System.out.println("THIS IS THE LOCATION: " + theLocation);
+	
+	if (theLocation.equalsIgnoreCase("Colorado")) {
+		 model.addAttribute("products", productService.getProductsNew());
+	//	myCoolFunction();
+	}else {
 		model.addAttribute("products", productService.getProducts());
-		
-		if (null != theLocation && theLocation.equalsIgnoreCase("Chicago")) {
-			myCoolFunction();
-		}
-      return "index";
+	}	
+      	
+	return "index";
     } 
     
     private void myCoolFunction() {
-    	try {
-			Thread.sleep(3500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	  Random random = new Random();
+        int sleepy = random.nextInt(5000 - 3000) + 3000;
+        try{
+        Thread.sleep(sleepy);
+        } catch (Exception e){}
     }
     
    

@@ -28,7 +28,18 @@ public class ProductRepo {
 
     public Map<String, ProductDTO> getProductDTOs() {
         ResponseEntity<List<ProductDTO>> productCatalogueResponse =
-                restTemplate.exchange(productsUri + "/products",
+                restTemplate.exchange(productsUri + "/products/old",
+                        HttpMethod.GET, null, new ParameterizedTypeReference<List<ProductDTO>>() {
+                        });
+        List<ProductDTO> productDTOs = productCatalogueResponse.getBody();
+
+        return productDTOs.stream()
+                .collect(Collectors.toMap(ProductDTO::getId, Function.identity()));
+    }
+
+    public Map<String, ProductDTO> getProductDTOsNew() {
+        ResponseEntity<List<ProductDTO>> productCatalogueResponse =
+                restTemplate.exchange(productsUri + "/products/new",
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<ProductDTO>>() {
                         });
         List<ProductDTO> productDTOs = productCatalogueResponse.getBody();
