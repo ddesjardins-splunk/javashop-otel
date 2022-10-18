@@ -3,7 +3,7 @@ package com.shabushabu.javashop.shop.controllers;
 
 public class User {
 	private String name;
-	private String color;
+	private String location;
 
 	public String getName() {
 		return name;
@@ -13,17 +13,17 @@ public class User {
 		this.name = name;
 	}
 
-	public String getColor() {
-		return color;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Override
 	public String toString() {
-		return "name:" + name + " color:" + color ;
+		return "name:" + name + " location:" + location ;
 	}
 
 }
