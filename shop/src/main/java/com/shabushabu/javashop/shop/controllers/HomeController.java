@@ -49,13 +49,25 @@ public class HomeController {
    */
     
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public String usingRequestParam(Model model, @RequestParam(value="name", required=true) String thename, @RequestParam(value="color", required=true) String thecolor) {
+    public String usingRequestParam(Model model, @RequestParam(value="name", required=false) String theName, @RequestParam(value="location", required=false) String theLocation) {
 	
 		model.addAttribute("user", new User());
 		model.addAttribute("products", productService.getProducts());
- 	
+		
+		if (theLocation.equalsIgnoreCase("Chicago")) {
+			myCoolFunction();
+		}
       return "index";
     } 
+    
+    private void myCoolFunction() {
+    	try {
+			Thread.sleep(3500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
     
    
    

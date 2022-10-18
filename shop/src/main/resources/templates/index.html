@@ -38,19 +38,19 @@
     	<p>Name:  <input type="text" th:field="*{name}" /></p>
     	    <!--    <form method="post">
         		Name : <input type="text" name="name" />
-        		Color : <input type="text" name="color" /> 
+        		Location : <input type="text" name="location" /> 
         		<input type="submit" />
     		</form>
     		
     	-->
-    	<p>Color: <select th:field="*{color}">
-    		<option th:value="Blue" th:text="Blue"></option>
-    		<option th:value="Green" th:text="Green"></option>
-    		<option th:value="Red" th:text="Red"></option>
+    	<p>Color: <select th:field="*{location}">
+    		<option th:value="New York" th:text="New York"></option>
+    		<option th:value="San Francisco" th:text="San Francisco"></option>
+    		<option th:value="Chicago" th:text="Chicago""></option>
 		</select> 
 		</p>
         
-        <p><input type="submit" value="Submit" /> 
+        <p><input type="submit" value="Login" /> 
        
 	</p> 
 	</form> 
