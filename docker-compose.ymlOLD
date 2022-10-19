@@ -1,0 +1,17 @@
+version: '3'
+services:
+  shop:
+  image: shabushabu/javashop.shop:latest
+    ports:
+      - "8010:8010"
+    links:
+      - products
+      - stock
+  products:
+          image: shabushabu/javashop.stock:latest
+    ports:
+      - "8020:8020"
+  stock:
+          image: shabushabu/javashop.stock:latest
+    ports:
+      - "8030:8030"
