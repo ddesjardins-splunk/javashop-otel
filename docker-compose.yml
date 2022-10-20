@@ -1,22 +1,28 @@
 version: '3'
 services:
   shop:
+    network_mode: host
     image: shabushabu/javashop.shop:latest
+    command: -server -advertise HOSTIP -bootstrap
     ports:
       - "8010:8010"
-    links:
-      - products
-      - stock
+    #links:
+    #  - products
+    #  - stock
     environment:
      - USERNAME=${USERNAME}
   products:
+    network_mode: host
     image:  shabushabu/javashop.products:latest
+    command: -server -advertise HOSTIP -bootstrap
     ports:
       - "8020:8020"
     environment:
       - USERNAME=${USERNAME}
   stock:
+    network_mode: host
     image: shabushabu/javashop.stock:latest
+    command: -server -advertise HOSTIP -bootstrap
     ports:
       - "8030:8030"
     environment:
